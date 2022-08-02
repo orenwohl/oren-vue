@@ -1,58 +1,36 @@
 <template>
-  <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-2 gap-14 justify-center">
-        <product-card
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-delay="50"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in"
-          data-aos-mirror="true"
-          data-aos-once="false"
-          data-aos-anchor-placement=" top-center"
-          v-for="prod in allProducts"
-          :key="prod.id"
-          :product="prod"
-        >
-          <loading-spinner v-if="isLoading === true"></loading-spinner>
-        </product-card>
-      </div>
-    </div>
-  </section>
+  <div>
+    <hero-section></hero-section>
+    <snippet-section></snippet-section>
+    <features-section></features-section>
+    <access-anywhere></access-anywhere>
+    <super-charge-section></super-charge-section>
+    <refrences-section></refrences-section>
+    <bottom-section></bottom-section>
+    <footer-section></footer-section>
+  </div>
 </template>
 
 <script>
-import ProductCard from "../modules/products/components/ProductCard.vue";
-import { mapActions, mapGetters } from "vuex";
-import LoadingSpinner from "../layouts/LoadingSkeleton.vue";
-
+import HeroSection from "../components/HeroSection.vue";
+import SnippetSection from "../components/SnippetSection.vue";
+import FeaturesSection from "../components/FeaturesSection.vue";
+import AccessAnywhere from "../components/AccessAnywhere.vue";
+import SuperChargeSection from "../components/SuperChargeSection.vue";
+import RefrencesSection from "../components/RefrencesSection.vue";
+import BottomSection from "../components/BottomSection.vue";
+import FooterSection from "../components/FooterSection.vue";
 export default {
-  data() {
-    return {
-      isLoading: true,
-    };
+  name: "App",
+  components: {
+    HeroSection,
+    SnippetSection,
+    FeaturesSection,
+    AccessAnywhere,
+    SuperChargeSection,
+    RefrencesSection,
+    BottomSection,
+    FooterSection,
   },
-  mounted() {
-    this.fetchProducts();
-  },
-
-  methods: {
-    ...mapActions("products", ["getProducts"]),
-
-    fetchProducts() {
-      this.getProducts();
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 1000);
-    },
-  },
-
-  computed: {
-    ...mapGetters("products", ["allProducts"]),
-    ...mapGetters("cart", ["cart", "cartTotal"]),
-  },
-
-  components: { ProductCard, LoadingSpinner },
 };
 </script>

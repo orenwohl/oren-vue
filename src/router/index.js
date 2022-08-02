@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import ShoppingCart from "../views/ShoppingCart.vue";
 
 Vue.use(VueRouter);
 
@@ -11,11 +10,11 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  {
-    path: "/shopping-cart",
-    name: "cart",
-    component: ShoppingCart,
-  },
+  // {
+  //   path: "/shopping-cart",
+  //   name: "cart",
+  //   component: ShoppingCart,
+  // },
 ];
 
 const router = new VueRouter({
