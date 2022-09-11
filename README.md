@@ -1,5 +1,9 @@
 # oren-vue-landing-page
 
+## Project Demo
+
+[Live Demo](https://oren-landing-page.netlify.app/) 
+
 
 ## Project setup
 ```
